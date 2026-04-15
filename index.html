@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>島嶼時光機：1920的覺醒與迷惘</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="glass-container text-center">
+    <h1>島嶼時光機</h1>
+    <p class="mb-4">1920的覺醒與迷惘 - 臺灣歷史互動探索</p>
+    
+    <div id="lobby-view">
+      <div class="button-group" style="flex-direction: column; width: 60%; margin: 0 auto; gap: 20px;">
+        <button class="btn" id="btn-practice-select">單人練習模式 (選擇關卡)</button>
+        <button class="btn btn-secondary" id="btn-join-multiplayer">多人連線競賽 (學生加入)</button>
+        <button class="btn btn-secondary" id="btn-teacher-mode">老師開房控制台</button>
+      </div>
+    </div>
+
+    <!-- Practice Mode Stage Selection -->
+    <div id="practice-select-view" class="hidden">
+      <h2>選擇關卡</h2>
+      <div class="button-group" style="flex-direction: column; width: 80%; margin: 0 auto; gap: 15px;">
+        <button class="btn btn-secondary stage-btn" data-stage="1">第一章：學堂裡的階級</button>
+        <button class="btn btn-secondary stage-btn" data-stage="2">第二章：島嶼的處方籤</button>
+        <button class="btn btn-secondary stage-btn" data-stage="3">第三章：摩登時代的陰影</button>
+        <button class="btn btn-secondary stage-btn" style="border-color: var(--primary-color);" data-stage="4">第四章：總結評量與結算</button>
+      </div>
+      <button class="btn btn-secondary mt-4" id="btn-back-lobby-from-practice">返回大廳</button>
+    </div>
+
+    <!-- Join Room View (Hidden by default) -->
+    <div id="join-view" class="hidden">
+      <h2>加入教室</h2>
+      <input type="text" id="join-name" placeholder="請輸入你的暱稱 (如: 小明)" maxlength="10">
+      <input type="text" id="join-code" placeholder="請輸入4碼房間代號" maxlength="4">
+      <div class="button-group">
+        <button class="btn btn-secondary" id="btn-back-lobby">返回</button>
+        <button class="btn" id="btn-submit-join">確認加入</button>
+      </div>
+      <p id="join-error" style="color: #ef4444; margin-top: 10px;" class="hidden"></p>
+    </div>
+
+    <!-- Waiting Room View -->
+    <div id="waiting-view" class="hidden">
+      <h2>等待老師開始遊戲...</h2>
+      <p>房間代號: <span id="waiting-room-code" style="font-weight: bold; font-size: 1.2rem; color: var(--primary-color);"></span></p>
+      <div class="player-list-container">
+        <h3>已加入玩家:</h3>
+        <ul id="waiting-player-list" class="player-list"></ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+  <script src="./main.js"></script>
+</body>
+</html>

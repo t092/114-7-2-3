@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>遊戲進行中 - 島嶼時光機</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body style="align-items: flex-start; padding-top: 2rem;">
+  <div class="glass-container" style="max-width: 1000px; width: 95%;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+      <h2 id="stage-title">關卡載入中...</h2>
+      <div>分數: <span id="player-score" style="font-weight: bold; font-size: 1.5rem; color: #facc15;">0</span></div>
+    </div>
+
+    <!-- Game Canvas/Area -->
+    <div class="game-area" id="game-area" style="background-image: url('https://images.unsplash.com/photo-1599839619722-39751411ea63?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80');">
+      
+      <!-- Interactive Elements -->
+      <div id="interactive-layer" style="position: absolute; top:0; left:0; width:100%; height:100%;">
+        <!-- Hotspots will be added here via JS -->
+      </div>
+
+      <!-- Question Overlay -->
+      <div id="question-overlay" class="hidden" style="position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.8); z-index: 10; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px;">
+        <h3 id="question-text" style="text-align: center; margin-bottom: 30px; font-size: 1.5rem;">題目</h3>
+        <div id="question-options" style="display: flex; flex-direction: column; gap: 15px; width: 80%; max-width: 500px;">
+          <!-- Options added via JS -->
+        </div>
+      </div>
+
+      <!-- Interactive Minigame Overlay -->
+      <div id="minigame-overlay" class="hidden" style="position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.7); z-index: 9; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 20px;">
+        <div id="minigame-content" style="width: 100%; height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center;"></div>
+      </div>
+
+      <!-- Dialog Box -->
+      <div id="dialog-box" class="dialog-box">
+        <h4 id="speaker-name" style="color: #60a5fa; margin-bottom: 5px;">無名氏</h4>
+        <p id="dialog-text" style="font-size: 1.2rem; line-height: 1.5;">...</p>
+        <div style="text-align: right; margin-top: 10px;">
+          <button class="btn btn-secondary" style="padding: 5px 15px; font-size: 0.9rem;" id="btn-next-dialog">下一步</button>
+        </div>
+      </div>
+    </div>
+    
+    <div class="text-center">
+      <p id="connection-status" style="color: #94a3b8; font-size: 0.9rem;">連線狀態: 未連線</p>
+    </div>
+  </div>
+
+  <script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+  <script src="./game.js"></script>
+</body>
+</html>

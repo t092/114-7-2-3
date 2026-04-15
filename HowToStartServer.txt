@@ -1,0 +1,35 @@
+Listed directory JAPANOCCUPYTAIWAN
+
+我其實**已經為您製作完成了**！😊
+
+所有的程式碼架構與遊戲邏輯都已經在您的專案資料夾內建置完畢。如果您查看您目前的資料夾，會發現多出了 `client/` 與 `server/` 這兩個新資料夾：
+
+1. **`server/`**：這裡是 Node.js + Socket.io 後端，負責處理「臨時房間」與「即時同步成績」的功能。
+2. **`client/`**：這是 Vite 前端，包含首頁(Lobby)、老師控制台 (`teacher.html`)、遊戲介面 (`game.html`) 還有視覺小說的題庫邏輯。
+
+這就為您展示了如何**立即啟動並體驗遊戲**。
+
+### 請在本地端執行以下步驟即可開始試玩：
+
+**第一步：啟動後端伺服器 (臨時房間主機)**
+請打開終端機 (Terminal / PowerShell)，切換到專案並啟動 Server：
+```bash
+cd M:\OneDrive\grifon\OneDrive\AI\VibeVoding\JAPANOCCUPYTAIWAN\server
+node server.js
+```
+*(看到 `Server listening on port 3000` 表示啟動成功)*
+
+**第二步：啟動前端網頁 (老師與學生介面)**
+請留下剛剛那個終端機不要關閉，**再開一個新的終端機**：
+```bash
+cd M:\OneDrive\grifon\OneDrive\AI\VibeVoding\JAPANOCCUPYTAIWAN\client
+npx vite
+```
+ Vite 會提供一個預覽網址給您（通常是 `http://localhost:5173/`），請用瀏覽器打開它。
+
+### 測試玩法小訣竅：
+1. 您可以開一個瀏覽器視窗點擊**「老師開房控制台」**，點選建立新房間（會顯示一組 4 碼的代號）。
+2. 在瀏覽器開一個「無痕視窗」，扮演學生，點選**「多人連線競賽」**，輸入您的暱稱與剛才老師看到的 4 碼代號加入房間。
+3. 加入後，老師端可以點擊「第一章」，學生的畫面就會自動跳轉並開始進行第一關的互動問答囉！
+
+快來試試看吧！如果測試後有想調整或改變排版、題目，請隨時告訴我！

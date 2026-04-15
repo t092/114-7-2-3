@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>老師控制台 - 島嶼時光機</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="glass-container">
+    <h1 class="text-center">老師控制台</h1>
+    
+    <div id="teacher-setup" class="text-center">
+      <p class="mb-4">點擊下方按鈕建立一個臨時的連線競賽房間。</p>
+      <button class="btn" id="btn-create-room">建立新房間</button>
+      <div class="mt-4"><a href="./index.html" style="color: #fff;">返回首頁</a></div>
+    </div>
+
+    <!-- Teacher Dashboard (Hidden by default) -->
+    <div id="teacher-dashboard" class="hidden">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.2); padding-bottom: 20px; margin-bottom: 20px;">
+        <h2>房間代號: <span id="display-room-code" style="font-size: 2.5rem; color: var(--primary-color);">----</span></h2>
+        <div>連線人數: <span id="player-count">0</span></div>
+      </div>
+
+      <div style="display: flex; gap: 30px;">
+        <!-- Left: Stage Controls -->
+        <div style="flex: 1;">
+          <h3>關卡控制</h3>
+          <p style="margin-bottom: 15px; font-size: 0.9rem; color: #cbd5e1;">請選擇要發送給學生的關卡。學生必須完成該關卡所有互動與題目。</p>
+          <div style="display: flex; flex-direction: column; gap: 10px;">
+            <button class="btn btn-secondary stage-btn" data-stage="1">第一章：學堂裡的階級 (教育政策)</button>
+            <button class="btn btn-secondary stage-btn" data-stage="2">第二章：島嶼的處方籤 (社會運動)</button>
+            <button class="btn btn-secondary stage-btn" data-stage="3">第三章：摩登時代的陰影 (現代化與皇民化)</button>
+            <button class="btn btn-secondary stage-btn" style="border-color: var(--primary-color);" data-stage="4">第四章：總結評量與成績結算</button>
+          </div>
+        </div>
+
+        <!-- Right: Leaderboard -->
+        <div style="flex: 1;">
+          <h3>即時記分板</h3>
+          <ul id="leaderboard" class="player-list">
+            <!-- Example Item: <li><span>小明</span> <span>10 分</span></li> -->
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.socket.io/4.7.4/socket.io.min.js"></script>
+  <script src="./teacher.js"></script>
+</body>
+</html>
